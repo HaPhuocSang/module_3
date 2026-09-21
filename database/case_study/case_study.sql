@@ -237,8 +237,6 @@ from dich_vu dv
 left join loai_dich_vu ldv on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu 
 where dv.ma_dich_vu in(select * from ds_ma_dich_vu_2020) and dv.ma_dich_vu not in(select * from ds_ma_dich_vu_2021) 
 order by ldv.ten_loai_dich_vu desc;
--- câu 8
-
 -- câu 9
 select month(hd.ngay_lam_hop_dong) as thang, count(hd.ma_khach_hang) as so_luong_khach_hang
 from hop_dong hd
@@ -250,3 +248,31 @@ select hd.ma_hop_dong, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, hd.tien_dat_coc, 
 from hop_dong hd
 left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
 group by hd.ma_hop_dong, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, hd.tien_dat_coc;
+-- cau 11
+select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, kh.ho_ten 
+from dich_vu_di_kem dvdk
+join hop_dong_chi_tiet hdct on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+join hop_dong hd on hd.ma_hop_dong = hdct.ma_hop_dong
+join khach_hang kh on kh.ma_khach_hang = hd.ma_khach_hang
+join loai_khach lk on lk.ma_loai_khach = kh.ma_loai_khach
+where lk.ten_loai_khach = 'Diamond' and (kh.dia_chi like '%Vinh' or kh.dia_chi like '%Quảng Ngãi'); 
+-- cau 12
+with ma_hd_2020 as (select ma_hop_dong from hop_dong where (month(ngay_lam_hop_dong) between 10 and 12) and year(ngay_lam_hop_dong) = 2020),
+ma_hd_2021 as (select ma_hop_dong from hop_dong where (month(ngay_lam_hop_dong) between 1 and 6) and year(ngay_lam_hop_dong) = 2021)
+select hd.ma_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, dv.ten_dich_vu, coalesce(sum(hdct.so_luong), 0) as so_luong_dich_vu_di_kem, hd.tien_dat_coc 
+from hop_dong hd
+join nhan_vien nv on nv.ma_nhan_vien = hd.ma_nhan_vien
+join khach_hang kh on kh.ma_khach_hang = hd.ma_khach_hang
+left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
+join dich_vu dv on dv.ma_dich_vu = hd.ma_dich_vu
+where hd.ma_hop_dong in (select * from ma_hd_2020) and hd.ma_hop_dong not in (select * from ma_hd_2021)
+group by hd.ma_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, dv.ten_dich_vu, hd.tien_dat_coc;
+select * from hop_dong;
+-- cau 13
+-- cau 14
+-- cau 15
+-- cau 16
+-- cau 17
+-- cau 18
+-- cau 19
+-- cau 20

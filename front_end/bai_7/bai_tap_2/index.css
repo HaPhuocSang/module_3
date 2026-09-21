@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    height: 100vh;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header {
+    height: 7%;
+    display: flex;
+    background-color: #222;
+    color: #aaa;
+    font-weight: bold;
+}
+
+.content {
+    min-height: 85%;
+}
+
+footer {
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #555;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.logo {
+    padding: 14px;
+    background-color: #222;
+    font-size: 16px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu-item {
+    padding: 16px 15px;
+    font-size: 14px;
+}
+
+.menu-item.active {
+    background-color: #000;
+    color: white;
+}
+
+.menu-item:hover {
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+}
+
+.login {
+    margin-left: auto;
+    padding: 15px 14px;
+    font-size: 14px;
+}
+
+.login:hover {
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+}
+
+.left {
+    background-color: #f1f1f1;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.link {
+    margin: 0 0 12px;
+    color: #337ab7;
+    font-size: 14px;
+}
+
+.link a {
+    text-decoration: none;
+}
+
+.main {
+    padding: 18px 14px;
+    background-color: white;
+}
+
+.main h1 {
+    margin: 0 0 5px;
+    font-size: 34px;
+    color: #222
+}
+
+.main h2 {
+    margin: 15px 0 5px;
+    font-size: 23px;
+    color: #333;
+}
+
+.main p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    text-align: left;
+}
+
+.main hr {
+    margin-top: 18px;
+    height: 2px;
+    background-color: #eee;
+}
+
+.right {
+    padding: 19px 14px;
+    background-color: #f1f1f1;
+}
+
+.ads {
+    height: 75px;
+    margin-bottom: 19px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.col-m-1 {
+    width: 8.333333%;
+}
+
+.col-m-2 {
+    width: 16.666667%;
+}
+
+.col-m-3 {
+    width: 25%;
+}
+
+.col-m-4 {
+    width: 33.333333%;
+}
+
+.col-m-5 {
+    width: 41.666667%;
+}
+
+.col-m-6 {
+    width: 50%;
+}
+
+.col-m-7 {
+    width: 58.333333%;
+}
+
+.col-m-8 {
+    width: 66.666667%;
+}
+
+.col-m-9 {
+    width: 75%;
+}
+
+.col-m-10 {
+    width: 83.333333%;
+}
+
+.col-m-11 {
+    width: 91.666667%;
+}
+
+.col-m-12 {
+    width: 100%;
+}
+@media only screen and (max-width: 460px){
+    .col-s-1 { width: 8.333333%; }
+    .col-s-2 { width: 16.666667%; }
+    .col-s-3 { width: 25%; }
+    .col-s-4 { width: 33.333333%; }
+    .col-s-5 { width: 41.666667%; }
+    .col-s-6 { width: 50%; }
+    .col-s-7 { width: 58.333333%; }
+    .col-s-8 { width: 66.666667%; }
+    .col-s-9 { width: 75%; }
+    .col-s-10 { width: 83.333333%; }
+    .col-s-11 { width: 91.666667%; }
+    .col-s-12 { width: 100%; }
+}
+
+@media only screen and (min-width: 900px) {
+    .col-m-1 { width: 8.333333%; }
+    .col-m-2 { width: 16.666667%; }
+    .col-m-3 { width: 25%; }
+    .col-m-4 { width: 33.333333%; }
+    .col-m-5 { width: 41.666667%; }
+    .col-m-6 { width: 50%; }
+    .col-m-7 { width: 58.333333%; }
+    .col-m-8 { width: 66.666667%; }
+    .col-m-9 { width: 75%; }
+    .col-m-10 { width: 83.333333%; }
+    .col-m-11 { width: 91.666667%; }
+    .col-m-12 { width: 100%; }
+}
+
+@media only screen and (min-width: 1240px) {
+    .col-l-1 { width: 8.333333%; }
+    .col-l-2 { width: 16.666667%; }
+    .col-l-3 { width: 25%; }
+    .col-l-4 { width: 33.333333%; }
+    .col-l-5 { width: 41.666667%; }
+    .col-l-6 { width: 50%; }
+    .col-l-7 { width: 58.333333%; }
+    .col-l-8 { width: 66.666667%; }
+    .col-l-9 { width: 75%; }
+    .col-l-10 { width: 83.333333%; }
+    .col-l-11 { width: 91.666667%; }
+    .col-l-12 { width: 100%; }
+}
