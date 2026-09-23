@@ -296,19 +296,15 @@ footer a:hover {
     }
 }
 
-/* ==== DOTS TỰ TẠO (KHÔNG DÙNG BOOTSTRAP INDICATORS) ==== */
-
-/* Container chứa dots */
 .custom-dots {
     gap: 10px;
     padding-left: 0;
 }
 
-/* Từng chấm tròn */
 .custom-dot {
     width: 12px;
     height: 12px;
-    min-width: 12px;      /* Chống bị co lại */
+    min-width: 12px;
     min-height: 12px;
     border-radius: 50%;
     background-color: #a0a0a0;
@@ -321,28 +317,25 @@ footer a:hover {
     display: inline-block;
     box-sizing: border-box;
     flex-shrink: 0;
-    appearance: none;      /* Xóa style mặc định của browser */
+    appearance: none;
     -webkit-appearance: none;
     outline: none;
     text-indent: 0;
     overflow: hidden;
-    font-size: 0;          /* Ẩn text nếu có */
+    font-size: 0;
     line-height: 0;
 }
 
-/* Chấm đang active */
 .custom-dot.active {
     background-color: #2a2c5a;
     opacity: 1;
     transform: scale(1.2);
 }
 
-/* Hover */
 .custom-dot:hover {
     opacity: 0.8;
 }
 
-/* Responsive: căn giữa trên mobile */
 @media (max-width: 991px) {
     .custom-dots {
         justify-content: center !important;
