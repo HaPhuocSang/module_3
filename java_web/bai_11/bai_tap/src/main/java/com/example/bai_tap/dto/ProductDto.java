@@ -1,28 +1,21 @@
-package com.example.bai_tap.entity;
+package com.example.bai_tap.dto;
 
-public class Product {
+public class ProductDto {
     private int id;
     private String name;
     private double price;
     private String description;
-    private int id_category;
+    private String category;
 
-    public Product() {
+    public ProductDto() {
     }
 
-    public Product(String name, double price, String description, int id_category) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
-        this.id_category = id_category;
-    }
-
-    public Product(int id, String name, double price, String description, int id_category) {
+    public ProductDto(int id, String name, double price, String description, String category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
-        this.id_category = id_category;
+        this.category = category;
     }
 
     public int getId() {
@@ -57,11 +50,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getId_category() {
-        return id_category;
+    public String getCategory() {
+        return category;
     }
 
-    public void setId_category(int id_category) {
-        this.id_category = id_category;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

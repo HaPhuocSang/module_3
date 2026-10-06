@@ -22,10 +22,7 @@
                 </div>
                 <div class="card-body">
                     <form action="/?action=add" method="post">
-                        <div class="mb-3">
-                            <label for="id" class="form-label"> Mã sản phẩm </label>
-                            <input type="number" class="form-control" id="id" name="id" placeholder="Nhập mã sản phẩm" required>
-                        </div>
+                        <input type="hidden" name="id" value="1">
                         <div class="mb-3">
                             <label for="name" class="form-label"> Tên sản phẩm </label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên sản phẩm" required>
@@ -37,6 +34,14 @@
                         <div class="mb-3">
                             <label for="description" class="form-label"> Mô tả </label>
                             <input type="text" class="form-control" id="description" name="description" placeholder="Nhập mô tả" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label"> Mô tả </label>
+                            <select id="category" name="idCategory" class="form-select">
+                                <c:forEach var="category" items="${categories}">
+                                    <option value="${category.id}">${category.name}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="d-flex justify-content-between mt-4">
                             <a href="/" class="btn btn-secondary"> Quay lại </a>

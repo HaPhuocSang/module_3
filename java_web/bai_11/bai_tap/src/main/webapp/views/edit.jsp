@@ -23,10 +23,7 @@
                 </div>
                 <div class="card-body">
                     <form action="/?action=edit" method="post">
-                        <div class="mb-3">
-                            <label for="id" class="form-label"> Mã sản phẩm </label>
-                            <input type="number" class="form-control" id="id" name="id" value="${product.id}" readonly>
-                        </div>
+                        <input type="hidden" name="id" value="${product.id}">
                         <div class="mb-3">
                             <label for="name" class="form-label"> Tên sản phẩm </label>
                             <input type="text" class="form-control" id="name" name="name" value="${product.name}" required>
@@ -38,6 +35,14 @@
                         <div class="mb-3">
                             <label for="description" class="form-label"> Mô tả </label>
                             <input type="text" class="form-control" id="description" name="description" value="${product.description}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label"> Mô tả </label>
+                            <select id="category" name="idCategory" class="form-select">
+                                <c:forEach var="category" items="${categories}">
+                                    <option value="${category.id}" ${category.name == product.category ? 'selected' : ''}>${category.name}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="d-flex justify-content-between mt-4">
                             <a href="/" class="btn btn-secondary"> Quay lại </a>

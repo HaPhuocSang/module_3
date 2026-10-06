@@ -19,11 +19,11 @@
                 ${param.mess}
         </div>
     </c:if>
-    <form action="/?action=search" method="get" class="row g-2 mb-4">
+    <form action="/" method="get" class="row g-2 mb-4">
         <input type="hidden" name="action" value="search">
         <label for="search"></label>
         <div class="col-md-8">
-            <input type="text" id="search" name="search" class="form-control" placeholder="Nhập tên sản phẩm cần tìm..." value="${search}">
+            <input type="text" id="search" name="keyword" class="form-control" placeholder="Nhập tên sản phẩm cần tìm..." value="${keyword}">
         </div>
         <div class="col-md-2">
             <button type="submit" class="btn btn-success w-100">🔍 Tìm kiếm</button>
@@ -32,6 +32,20 @@
             <a href="/" class="btn btn-secondary w-100">Làm mới</a>
         </div>
     </form>
+    <div class="mb-4">
+        <label for="category" class="form-label">Chọn danh mục</label>
+        <form action="/" method="get">
+            <input type="hidden" name="action" value="category">
+            <select name="id" id="category" class="form-select" onchange="this.form.submit()">
+                <option value="">
+                    -- Chọn danh mục --
+                </option>
+                <c:forEach var="category" items="${categories}">
+                    <option value="${category.id}"${category.id == selectedCategoryId ? 'selected' : ''}>${category.name}</option>
+                </c:forEach>
+            </select>
+        </form>
+    </div>
     <div class="card shadow-sm">
         <div class="card-body">
             <div class="table-responsive">
@@ -42,7 +56,8 @@
                         <th>Mã sản phẩm</th>
                         <th>Tên sản phẩm</th>
                         <th>Giá</th>
-                        <th>Số lượng</th>
+                        <th>Mô tả</th>
+                        <th>Thương hiệu</th>
                         <th class="text-center">Thao tác</th>
                     </tr>
                     </thead>
@@ -52,8 +67,9 @@
                             <td class="text-center">${status.count}</td>
                             <td>${product.id}</td>
                             <td>${product.name}</td>
-                            <td>${product.price}</td>
+                            <td><fmt:formatNumber value="${product.price}" pattern="0"/></td>
                             <td>${product.description}</td>
+                            <td>${product.category}</td>
                             <td class="text-center">
                                 <form action="/?action=showEdit" method="post">
                                     <label for="productId" style="display: none"></label>
@@ -72,6 +88,18 @@
         </div>
     </div>
 </div>
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <c:forEach begin="1" end="${totalPages}" var="page">
+            <li class="page-item ${page == currentPage ? 'active' : ''}">
+                <a class="page-link"
+                   href="/?action=list&page=${page}">
+                        ${page}
+                </a>
+            </li>
+        </c:forEach>
+    </ul>
+</nav>
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <form action="/?action=delete" method="post">
         <input type="hidden"  name="productId" id="productId">
